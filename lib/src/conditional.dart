@@ -48,7 +48,7 @@ class Conditional extends JsonClass {
   /// The list must be iterable or this will throw an error.
   ///
   /// If the [list] is [null] then this will return [null].
-  static List<Conditional> fromDynamicList(dynamic list) {
+  static List<Conditional> fromDynamicList(Iterable<dynamic> list) {
     List<Conditional> results;
 
     if (list != null) {

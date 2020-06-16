@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:json_conditional/json_conditional.dart';
+import 'package:test/test.dart';
 
 void main() {
   test('from code', () {

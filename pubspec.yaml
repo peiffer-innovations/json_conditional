@@ -2,7 +2,7 @@ name: json_conditional
 description: A library to create conditional evaluators from JSON or JSON-like structures.
 homepage: https://github.com/peiffer-innovations/json_conditional
 
-version: 1.0.0+1
+version: 1.0.1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,13 +11,9 @@ analyzer:
   exclude: [lib/generated/**]
 
 dependencies:
-  flutter:
-    sdk: flutter
   json_class: ^1.0.0
   meta: ^1.1.8
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-flutter:
+  test: any
+  test_coverage: any
