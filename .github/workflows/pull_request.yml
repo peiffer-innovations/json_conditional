@@ -1,4 +1,4 @@
-name: Flutter Pull Request Checker
+name: Dart Pull Request Checker
 
 on:
   pull_request:
@@ -15,11 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: flutter packages get
+      run: pub upgrade
     - name: Dart Analyzer
       run: dartanalyzer lib
     - name: Code Format
       run: dartfmt --set-exit-if-changed -w lib test
     - name: Run tests
-      run: flutter test
+      run: pub run test
+    - name: Run test coverage
+      run: pub run test_coverage
 
