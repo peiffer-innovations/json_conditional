@@ -30,14 +30,31 @@ class Conditional extends JsonClass {
   /// be a [Map] or a Map-like object that supports the `[String]` operator.
   ///
   /// If the [map] is [null] then this will return [null].
+  ///
+  /// This expect the format of the object to be as follows:
+  /// ```json
+  /// {
+  ///   "conditions": <Conditional[]>,
+  ///   "mode": <String>,
+  ///   "values": <Map<String, dynamic>>
+  /// }
+  /// ```
+  ///
+  /// Either [conditions] or [values] must be set, but not both.  The [mode]
+  /// defaults to [EvaluationMode.and] if not set.
+  ///
+  /// See also:
+  ///  * [EvaluationMode.fromCode]
   static Conditional fromDynamic(dynamic map) {
     Conditional result;
 
     if (map != null) {
       result = Conditional(
         conditions: fromDynamicList(map['conditions']),
-        mode: EvaluationMode.fromCode(map['mode']),
-        values: map['values'],
+        mode: EvaluationMode.fromCode(map['mode']) ?? EvaluationMode.and,
+        values: map['values'] == null
+            ? null
+            : Map<String, dynamic>.from(map['values']),
       );
     }
 
