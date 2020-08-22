@@ -1,3 +1,8 @@
+## [1.0.3] - August 22nd, 2020
+
+* Dependency updates
+
+
 ## [1.0.2] - June 24th, 2020
 
 * Documentation enhancements
