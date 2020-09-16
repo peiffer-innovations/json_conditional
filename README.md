@@ -17,7 +17,21 @@ flutter packages get
 ```
 
 
+## JSON
+
+```json
+{
+  "conditions": <Conditional[]>,
+  "mode": <String>,
+  "values": <Map<String, dynamic>>
+}
+```
+
+Either the `conditions` or the `values` must be omitted.  The `mode` must be either `and` or `or`, and defaults to `and` when not set.
+
+
 ## Example
+
 
 ```dart
 import 'dart:convert';
@@ -35,3 +49,4 @@ if (conditional.evaluate(values)) {
 }
 
 ```
+

@@ -1,3 +1,8 @@
+## [1.0.3+1] - September 15th, 2020
+
+* Added example to readme
+
+
 ## [1.0.3] - August 22nd, 2020
 
 * Dependency updates
