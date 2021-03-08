@@ -101,17 +101,6 @@ void main() {
     } catch (e) {
       // pass
     }
-
-    try {
-      Conditional(
-        mode: null,
-        values: {'foo': 'bar'},
-      );
-
-      fail('Exception should have been thrown');
-    } catch (e) {
-      // pass
-    }
   });
 
   test('constructors - valid', () {

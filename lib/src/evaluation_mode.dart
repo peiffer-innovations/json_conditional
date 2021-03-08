@@ -28,8 +28,8 @@ class EvaluationMode {
   /// This expects one of the following [code] values:
   ///  * `and`
   ///  * `or`
-  static EvaluationMode fromCode(String code) {
-    EvaluationMode type;
+  static EvaluationMode? fromCode(String? code) {
+    EvaluationMode? type;
     if (code != null) {
       code = code.toLowerCase();
 

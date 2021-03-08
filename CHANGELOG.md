@@ -1,3 +1,13 @@
+## [2.0.0] - March 8th, 2021
+
+* Null Safety
+
+
+## [1.0.3+2] - January 10th, 2021
+
+* Dependency updates
+
+
 ## [1.0.3+1] - September 15th, 2020
 
 * Added example to readme

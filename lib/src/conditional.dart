@@ -14,17 +14,16 @@ class Conditional extends JsonClass {
     this.mode = EvaluationMode.and,
     this.values,
   })  : assert(conditions == null || values == null),
-        assert(conditions != null || values != null),
-        assert(mode != null);
+        assert(conditions != null || values != null);
 
   /// The sub-conditions to evaluate as the criteria.
-  final List<Conditional> conditions;
+  final List<Conditional?>? conditions;
 
   /// The mode to use when evaluating the criteria.
   final EvaluationMode mode;
 
   /// The key value pairs of values to evaluate against.
-  final Map<String, dynamic> values;
+  final Map<String, dynamic>? values;
 
   /// Creates a new [Conditional] from a Map-like dynamic value.  The [map] must
   /// be a [Map] or a Map-like object that supports the `[String]` operator.
@@ -45,8 +44,8 @@ class Conditional extends JsonClass {
   ///
   /// See also:
   ///  * [EvaluationMode.fromCode]
-  static Conditional fromDynamic(dynamic map) {
-    Conditional result;
+  static Conditional? fromDynamic(dynamic map) {
+    Conditional? result;
 
     if (map != null) {
       result = Conditional(
@@ -65,8 +64,8 @@ class Conditional extends JsonClass {
   /// The list must be iterable or this will throw an error.
   ///
   /// If the [list] is [null] then this will return [null].
-  static List<Conditional> fromDynamicList(Iterable<dynamic> list) {
-    List<Conditional> results;
+  static List<Conditional?>? fromDynamicList(Iterable<dynamic>? list) {
+    List<Conditional?>? results;
 
     if (list != null) {
       results = [];
@@ -97,7 +96,7 @@ class Conditional extends JsonClass {
   /// Encodes the inner representation of this model to a [json] compatible map.
   @override
   Map<String, dynamic> toJson() => JsonClass.removeNull({
-        'conditions': JsonClass.toJsonList(conditions),
+        'conditions': JsonClass.toJsonList(conditions as List<JsonClass>?),
         'mode': mode.code,
         'values': values,
       });
@@ -107,8 +106,8 @@ class Conditional extends JsonClass {
 
     var conditional = EvaluationMode.and == mode && actual?.isNotEmpty == true;
 
-    for (var condition in conditions) {
-      var equal = condition.evaluate(actual);
+    for (var condition in conditions!) {
+      var equal = condition!.evaluate(actual);
       if (EvaluationMode.and == mode) {
         conditional = conditional && equal;
       } else {
@@ -124,9 +123,9 @@ class Conditional extends JsonClass {
 
     var conditional = EvaluationMode.and == mode && actual?.isNotEmpty == true;
 
-    for (var entry in values.entries) {
+    for (var entry in values!.entries) {
       var equal =
-          actual[entry.key]?.toString() == values[entry.key]?.toString();
+          actual[entry.key]?.toString() == values![entry.key]?.toString();
       if (EvaluationMode.and == mode) {
         conditional = conditional && equal;
       } else {
