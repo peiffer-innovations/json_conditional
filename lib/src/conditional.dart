@@ -17,7 +17,7 @@ class Conditional extends JsonClass {
         assert(conditions != null || values != null);
 
   /// The sub-conditions to evaluate as the criteria.
-  final List<Conditional?>? conditions;
+  final List<Conditional>? conditions;
 
   /// The mode to use when evaluating the criteria.
   final EvaluationMode mode;
@@ -64,13 +64,13 @@ class Conditional extends JsonClass {
   /// The list must be iterable or this will throw an error.
   ///
   /// If the [list] is [null] then this will return [null].
-  static List<Conditional?>? fromDynamicList(Iterable<dynamic>? list) {
-    List<Conditional?>? results;
+  static List<Conditional>? fromDynamicList(Iterable<dynamic>? list) {
+    List<Conditional>? results;
 
     if (list != null) {
       results = [];
       for (dynamic map in list) {
-        results.add(fromDynamic(map));
+        results.add(fromDynamic(map)!);
       }
     }
 
@@ -96,7 +96,7 @@ class Conditional extends JsonClass {
   /// Encodes the inner representation of this model to a [json] compatible map.
   @override
   Map<String, dynamic> toJson() => JsonClass.removeNull({
-        'conditions': JsonClass.toJsonList(conditions as List<JsonClass>?),
+        'conditions': JsonClass.toJsonList(conditions),
         'mode': mode.code,
         'values': values,
       });
@@ -107,7 +107,7 @@ class Conditional extends JsonClass {
     var conditional = EvaluationMode.and == mode && actual?.isNotEmpty == true;
 
     for (var condition in conditions!) {
-      var equal = condition!.evaluate(actual);
+      var equal = condition.evaluate(actual);
       if (EvaluationMode.and == mode) {
         conditional = conditional && equal;
       } else {

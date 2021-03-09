@@ -2,7 +2,7 @@ name: json_conditional
 description: A library to create conditional evaluators from JSON or JSON-like structures.
 homepage: https://github.com/peiffer-innovations/json_conditional
 
-version: 2.0.0
+version: 2.0.0+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
