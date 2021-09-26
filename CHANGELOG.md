@@ -1,3 +1,8 @@
+## [2.0.0+2] - September 26th, 2021
+
+* Dependency update
+
+
 ## [2.0.0+1] - March 8th, 2021
 
 * Null Safety

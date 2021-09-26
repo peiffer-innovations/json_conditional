@@ -21,8 +21,8 @@ class EvaluationMode {
 
   final String code;
 
-  /// Returns the evaluation mode from the given code.  If the [code] is [null]
-  /// then this will return [null].  Otherwise, if the [code] doesn't match a
+  /// Returns the evaluation mode from the given code.  If the [code] is `null`
+  /// then this will return `null`.  Otherwise, if the [code] doesn't match a
   /// valid code then this will throw an exception rather than returning.
   ///
   /// This expects one of the following [code] values:

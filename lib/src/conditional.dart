@@ -6,7 +6,7 @@ import 'evaluation_mode.dart';
 /// based on the conditional criteria.
 class Conditional extends JsonClass {
   /// Constructs the conditional.  The [mode] defaults to [EvaluationMode.and]
-  /// and may not be [null].
+  /// and may not be `null`.
   ///
   /// Either [conditions] or [values] must be set, but not both.
   Conditional({
@@ -28,7 +28,7 @@ class Conditional extends JsonClass {
   /// Creates a new [Conditional] from a Map-like dynamic value.  The [map] must
   /// be a [Map] or a Map-like object that supports the `[String]` operator.
   ///
-  /// If the [map] is [null] then this will return [null].
+  /// If the [map] is `null` then this will return `null`.
   ///
   /// This expect the format of the object to be as follows:
   /// ```json
@@ -63,7 +63,7 @@ class Conditional extends JsonClass {
   /// Creates a list of [Conditional] objects from a List-like dynamic [list].
   /// The list must be iterable or this will throw an error.
   ///
-  /// If the [list] is [null] then this will return [null].
+  /// If the [list] is `null` then this will return `null`.
   static List<Conditional>? fromDynamicList(Iterable<dynamic>? list) {
     List<Conditional>? results;
 
