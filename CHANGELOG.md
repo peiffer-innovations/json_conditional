@@ -1,3 +1,8 @@
+## [2.1.0] - December 8th, 2021
+
+* Updated for Flutter 2.8
+
+
 ## [2.0.0+3] - November 14th, 2021
 
 * Switched GH publishing action
