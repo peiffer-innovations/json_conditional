@@ -1,3 +1,8 @@
+## [2.1.0+1] - December 27th, 2020
+
+* Dependency updates
+
+
 ## [2.1.0] - December 8th, 2021
 
 * Updated for Flutter 2.8
