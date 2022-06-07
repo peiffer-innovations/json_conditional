@@ -1,25 +1,24 @@
-name: json_conditional
-description: A library to create conditional evaluators from JSON or JSON-like structures.
-homepage: https://github.com/peiffer-innovations/json_conditional
+name: 'json_conditional'
+description: 'A library to create conditional evaluators from JSON or JSON-like structures.'
+homepage: 'https://github.com/peiffer-innovations/json_conditional'
+version: '2.1.0+4'
 
-version: 2.1.0+3
-
-environment:
+environment: 
   sdk: '>=2.17.0 <3.0.0'
 
-analyzer:
-  exclude: [lib/generated/**]
+analyzer: 
+  exclude: 
+    - 'lib/generated/**'
 
-dependencies:
-  json_class: ^2.1.2+4
-  meta: ^1.7.0
 
-dev_dependencies:
-  test: ^1.21.1
+dependencies: 
+  json_class: '^2.1.2+5'
+  meta: '^1.7.0'
 
-ignore_updates:
-  # Ignoring everything in flutter_test as those are all point-in-time entries
-  # can't upgrade without upgrading Flutter itself.
+dev_dependencies: 
+  test: '^1.21.1'
+
+ignore_updates: 
   - 'async'
   - 'boolean_selector'
   - 'characters'
