@@ -107,7 +107,7 @@ class Conditional extends JsonClass {
     var conditional = EvaluationMode.and == mode && actual?.isNotEmpty == true;
 
     for (var condition in conditions!) {
-      var equal = condition.evaluate(actual);
+      final equal = condition.evaluate(actual);
       if (EvaluationMode.and == mode) {
         conditional = conditional && equal;
       } else {
@@ -124,7 +124,7 @@ class Conditional extends JsonClass {
     var conditional = EvaluationMode.and == mode && actual?.isNotEmpty == true;
 
     for (var entry in values!.entries) {
-      var equal =
+      final equal =
           actual[entry.key]?.toString() == values![entry.key]?.toString();
       if (EvaluationMode.and == mode) {
         conditional = conditional && equal;

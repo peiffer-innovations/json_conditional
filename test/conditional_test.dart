@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('and - coonditions', () {
-    var conditional = Conditional(
+    final conditional = Conditional(
       conditions: [
         Conditional(values: {'bool': true}),
         Conditional(values: {'num': 42}),
@@ -42,7 +42,7 @@ void main() {
   });
 
   test('and - values', () {
-    var conditional = Conditional(
+    final conditional = Conditional(
       mode: EvaluationMode.and,
       values: {
         'bool': true,
@@ -124,7 +124,7 @@ void main() {
   });
 
   test('or - conditions', () {
-    var conditional = Conditional(
+    final conditional = Conditional(
       conditions: [
         Conditional(values: {'bool': true}),
         Conditional(values: {'num': 42}),
@@ -177,7 +177,7 @@ void main() {
   });
 
   test('or - values', () {
-    var conditional = Conditional(
+    final conditional = Conditional(
       mode: EvaluationMode.or,
       values: {
         'bool': true,
