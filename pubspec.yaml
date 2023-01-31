@@ -1,23 +1,24 @@
 name: 'json_conditional'
 description: 'A library to create conditional evaluators from JSON or JSON-like structures.'
 homepage: 'https://github.com/peiffer-innovations/json_conditional'
-version: '2.1.1'
+version: '2.1.1+1'
 
-environment:
+environment: 
   sdk: '>=2.19.0 <4.0.0'
 
-analyzer:
-  exclude:
+analyzer: 
+  exclude: 
     - 'lib/generated/**'
 
-dependencies:
-  json_class: '^2.1.4+1'
+
+dependencies: 
+  json_class: '^2.1.5'
   meta: '^1.8.0'
 
-dev_dependencies:
+dev_dependencies: 
   test: '^1.22.2'
 
-ignore_updates:
+ignore_updates: 
   - 'archive'
   - 'async'
   - 'boolean_selector'
