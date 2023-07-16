@@ -1,3 +1,8 @@
+## [3.0.0] - July 16th, 2023
+
+* **BREAKING**: Made `fromDynamic` non-nullable and added a nullable `maybeFromDynamic`.
+
+
 ## [2.1.2+3] - July 11, 2023
 
 * Automated dependency updates

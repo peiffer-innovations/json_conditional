@@ -28,7 +28,34 @@ class Conditional extends JsonClass {
   /// Creates a new [Conditional] from a Map-like dynamic value.  The [map] must
   /// be a [Map] or a Map-like object that supports the `[String]` operator.
   ///
-  /// If the [map] is `null` then this will return `null`.
+  /// This expect the format of the object to be as follows:
+  /// ```json
+  /// {
+  ///   "conditions": <Conditional[]>,
+  ///   "mode": <String>,
+  ///   "values": <Map<String, dynamic>>
+  /// }
+  /// ```
+  ///
+  /// Either [conditions] or [values] must be set, but not both.  The [mode]
+  /// defaults to [EvaluationMode.and] if not set.
+  ///
+  /// See also:
+  ///  * [EvaluationMode.fromCode]
+  static Conditional fromDynamic(dynamic map) {
+    final result = maybeFromDynamic(map);
+
+    if (result == null) {
+      throw Exception(
+        'Non-nullable Conditional.fromDynamic called but a null result was encountered.',
+      );
+    }
+
+    return result;
+  }
+
+  /// Creates a new [Conditional] from a Map-like dynamic value.  The [map] must
+  /// be a [Map] or a Map-like object that supports the `[String]` operator.
   ///
   /// This expect the format of the object to be as follows:
   /// ```json
@@ -44,12 +71,15 @@ class Conditional extends JsonClass {
   ///
   /// See also:
   ///  * [EvaluationMode.fromCode]
-  static Conditional? fromDynamic(dynamic map) {
+  static Conditional? maybeFromDynamic(dynamic map) {
     Conditional? result;
 
     if (map != null) {
       result = Conditional(
-        conditions: fromDynamicList(map['conditions']),
+        conditions: JsonClass.maybeFromDynamicList(
+          map['conditions'],
+          fromDynamic,
+        ),
         mode: EvaluationMode.fromCode(map['mode']) ?? EvaluationMode.and,
         values: map['values'] == null
             ? null
@@ -58,23 +88,6 @@ class Conditional extends JsonClass {
     }
 
     return result;
-  }
-
-  /// Creates a list of [Conditional] objects from a List-like dynamic [list].
-  /// The list must be iterable or this will throw an error.
-  ///
-  /// If the [list] is `null` then this will return `null`.
-  static List<Conditional>? fromDynamicList(Iterable<dynamic>? list) {
-    List<Conditional>? results;
-
-    if (list != null) {
-      results = [];
-      for (dynamic map in list) {
-        results.add(fromDynamic(map)!);
-      }
-    }
-
-    return results;
   }
 
   /// Evaluats the conditional to return a [bool] based on the criteria and the
@@ -95,11 +108,14 @@ class Conditional extends JsonClass {
 
   /// Encodes the inner representation of this model to a [json] compatible map.
   @override
-  Map<String, dynamic> toJson() => JsonClass.removeNull({
-        'conditions': JsonClass.toJsonList(conditions),
-        'mode': mode.code,
-        'values': values,
-      });
+  Map<String, dynamic> toJson() {
+    final conditions = this.conditions;
+    return JsonClass.removeNull({
+      if (conditions != null) 'conditions': JsonClass.toJsonList(conditions),
+      'mode': mode.code,
+      'values': values,
+    });
+  }
 
   bool _evaluateConditions(dynamic actual) {
     assert(actual != null);
