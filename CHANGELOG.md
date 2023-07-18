@@ -1,3 +1,8 @@
+## [3.0.0+1] - July 18, 2023
+
+* Automated dependency updates
+
+
 ## [3.0.0] - July 16th, 2023
 
 * **BREAKING**: Made `fromDynamic` non-nullable and added a nullable `maybeFromDynamic`.
@@ -248,6 +253,7 @@
 ## [1.0.0] - June 8th, 2020
 
 * Initial release
+
 
 
 
