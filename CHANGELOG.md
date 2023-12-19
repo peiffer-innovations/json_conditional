@@ -1,3 +1,8 @@
+## [3.0.1+1] - December 19, 2023
+
+* Automated dependency updates
+
+
 ## [3.0.1] - November 15th, 2023
 
 * Standardized analysis rules
@@ -313,6 +318,7 @@
 ## [1.0.0] - June 8th, 2020
 
 * Initial release
+
 
 
 
